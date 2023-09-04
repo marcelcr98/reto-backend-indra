@@ -51,13 +51,13 @@ Endpoints del proyecto para su uso.
 
 ```
 GET: Se obtienen todos los personajes de la pelicula Star Wars.
-https://jwwveyvwxc.execute-api.us-east-1.amazonaws.com/api/people
+https://ezt85xei27.execute-api.us-east-1.amazonaws.com/api/people
 ```
 
 
 ```
 POST: Se agrega nuevas personas al mundo de Star Wars en DynamoDB.
-https://jwwveyvwxc.execute-api.us-east-1.amazonaws.com/api/people
+https://ezt85xei27.execute-api.us-east-1.amazonaws.com/api/people
 
 Body:
 {
