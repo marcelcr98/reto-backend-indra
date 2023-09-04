@@ -1,5 +1,5 @@
-const { PeopleModal } = require("../models/peopleModals");
-const { PeopleSwapiModal } = require("../models/peopleSwapiModals");
+const { PeopleModal } = require("../models/peopleModel");
+const { PeopleSwapiModal } = require("../models/peopleSwapiModel");
 const swapi = require("swapi-node");
 
 async function getAllPeoplesService(eventLambda) {

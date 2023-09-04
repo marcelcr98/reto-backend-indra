@@ -1,5 +1,5 @@
 const swapi = require("swapi-node");
-const { CustomErrorSwapiApi } = require("../helpers/customErrorSwapi");
+const { CustomErrorSwapiApi } = require("../helpers/errorSwapi");
 
 class PeopleSwapiModal {
   constructor(entity) {
@@ -29,14 +29,6 @@ class PeopleSwapiModal {
     }
   }
 
-  static async getById({ Id }) {
-    try {
-      const PEOPLE_SWAPI = await swapi.people({ id: Id });
-      return new PeopleSwapiModal(PEOPLE_SWAPI);
-    } catch (error) {
-      throw new CustomErrorSwapiApi(error?.message);
-    }
-  }
 }
 
 module.exports = { PeopleSwapiModal };

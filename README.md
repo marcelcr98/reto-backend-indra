@@ -58,4 +58,35 @@ https://jwwveyvwxc.execute-api.us-east-1.amazonaws.com/api/people
 ```
 POST: Se agrega nuevas personas al mundo de Star Wars en DynamoDB.
 https://jwwveyvwxc.execute-api.us-east-1.amazonaws.com/api/people
+
+Body:
+{
+    "Id":"1",
+    "nombre":"Obi Wan",
+    "estatura": "180",
+    "masa": "77",
+    "color_pelo": "blond",
+    "color_piel": "fair",
+    "color_ojos": "brown",
+    "anio_de_nacimiento": "21BBY",
+    "genero": "male",
+    "planeta_natal": "https://swapi.dev/api/planets/1/",
+    "peliculas": [
+        "https://swapi.dev/api/films/1/",
+        "https://swapi.dev/api/films/2/",
+        "https://swapi.dev/api/films/3/",
+        "https://swapi.dev/api/films/6/"
+    ],
+    "vehiculos": [
+        "https://swapi.dev/api/vehicles/14/",
+        "https://swapi.dev/api/vehicles/30/"
+    ],
+    "naves": [
+        "https://swapi.dev/api/starships/12/",
+        "https://swapi.dev/api/starships/22/"
+    ],
+    "creado": "2014-12-09T13:50:51.644000Z",
+    "editado": "2014-12-20T21:17:56.891000Z",
+    "vinculo": "https://swapi.dev/api/people/1/"
+}
 ```
