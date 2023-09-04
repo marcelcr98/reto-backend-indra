@@ -1,4 +1,3 @@
-org: marcelcr
 app: serverless-indra
 service: serverless-indra
 frameworkVersion: "3"
