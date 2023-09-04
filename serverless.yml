@@ -1,0 +1,66 @@
+org: marcelcr
+app: serverless-indra
+service: serverless-indra
+frameworkVersion: "3"
+
+custom:
+  tablePeople: "peopleTable-${sls:stage}"
+  dynamodb:
+    stages:
+      - dev
+      - test
+
+provider:
+  timeout: 50
+  name: aws
+  runtime: nodejs18.x
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+          Resource:
+            - Fn::GetAtt: [PeoplesTable, Arn]
+  environment:
+    PEOPLE_TABLE: ${self:custom.tablePeople}
+
+functions:
+  getPeople:
+    name: "getPeople"
+    description: Obtener personajes @starwars
+    handler: src/controllers/peopleController.getPeople
+    events:
+      - httpApi:
+          path: /api/people
+          method: get
+  createPeople:
+    name: "createPeople"
+    description: Crear nuevos personajes @starwars
+    handler: src/controllers/peopleController.createPeople
+    events:
+      - httpApi:
+          path: /api/people
+          method: post
+
+
+resources:
+  Resources:
+    PeoplesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: peopleId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: peopleId
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:custom.tablePeople}
+
+plugins:
+  - serverless-dynamodb
+  - serverless-offline
